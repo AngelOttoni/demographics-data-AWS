@@ -10,21 +10,29 @@
 
 ### Create a bucket in Amazon S3
 
-- Amazon S3 Console -> Buckets -> Create bucket -> Bucket name [bucket name] - Create bucket
+- Amazon S3 Console -> Buckets -> Create bucket -> Bucket name [bucket name/dio-athena-data-amo] - Create bucket
 - Create a folder (Create a folder called ```/output``` and another with the name of your dataset. This name will define the name of the table created in Glue)
-- Upload the data files located in the folder ```/data```
+- Upload the data files located in the folder ```/br_population_data```
 
 #### Create Glue Crawler
 
-- Amazon Glue Console -> Crawlers -> Add Crawler
-- Source type [Data Stores] -> Crawl all folders
-- Data store [S3] -> Include path [input data directory path]
-- Create IAM Role
-- Frequency [Run on demand]
-- Database name [your_db_name]
-- Group behavior [Create a single schema for each S3 path]
-- Finish
-- Databases -> Tables -> View data from created tables
+- Amazon Glue Console -> Crawlers -> Add Crawler/Create Crawler
+ - **Step 1** - Set crawler properties:
+  - Name: [PopulationDbCrawlerAMO]
+ - **Step 2** - Choose data sources and classifiers
+  - Add data source [S3] -> Location of S3 data [x]In this account ->
+  - Subsequent crawler runs [x]Crawl all sub-folders
+  - Include path: Browser S3 -> Choose S3 path [s3://dio-athena-data-amo] -> Add an S3 data source
+ - **Step 3** - Configure security settings
+  - IAM role: Create a new IAM role [AWSGlueServiceRole-Population]
+ - **Step 4** - Set output and scheduling
+  - Add Database: Create a database [your_db_name/population-db-amo]
+  - Advanced options: S3 schema grouping [x]Create a single schema for each S3 path
+  - Crawler schedule: Frequency [x]On demand
+ - **Step 5** - Review and create
+  - Create crawler
+- AWS Glue -> Crawlers -> Check your crawler and Run
+ - Databases -> Tables: View created table data
 
 ### Create an Application on Amazon Athena
 
