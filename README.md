@@ -6,7 +6,7 @@
  - Amazon Athena
  - Amazon QuickSight
 
-### Development steps
+## Development steps
 
 ### Create a bucket in Amazon S3
 
@@ -35,8 +35,8 @@
    - Databases -> Tables: View created table data
 
 ### Create an Application on Amazon Athena
-
-- Query editor -> Settings -> Manage settings -> Query result location and encryption -> Browse S3 -> select the created bucket
+ - Get started [x]Query your data -> Lauch Query Editor
+ - Query editor: -> Settings -> Manage settings -> Query result location and encryption -> Browse S3 -> select the created bucket
 - Select Database -> create queries (examples in folder ```/src```)
 - Check unsaved queries in the bucket created in S3
 - Save queries -> Rerun -> Check in Bucket Created in S3
