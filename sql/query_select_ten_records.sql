@@ -1,1 +1,1 @@
-select * from "population"."population" limit 10
+select * from "population-db-amo"."dio_athena_data_amo" limit 10
