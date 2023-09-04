@@ -1,3 +1,3 @@
 select city, population
-from "population"."population"
-where city='Foz do Iguaçu';
+from "population-db-amo"."dio_athena_data_amo"
+where city='Recife';
